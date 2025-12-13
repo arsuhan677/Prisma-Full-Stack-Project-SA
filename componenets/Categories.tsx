@@ -21,9 +21,7 @@ export default async function Categories() {
                     </div>
                 ))}
             </div>
-            <div>
-                <h3>hello</h3>
-            </div>
+            
         </section>
     );
 }
