@@ -20,8 +20,7 @@ export default async function Categories() {
                         </h3>
                     </div>
                 ))}
-            </div>
-            
+            </div>          
         </section>
     );
 }

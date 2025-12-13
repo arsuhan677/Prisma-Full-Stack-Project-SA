@@ -29,16 +29,33 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string
-    email: string
-    avatar: string
-  }
-}) {
+import { useRouter } from "next/navigation";
+import { signOut, useSession } from "@/lib/auth-client";
+import { useEffect } from "react";
+
+export function NavUser() {
   const { isMobile } = useSidebar()
+
+  const router = useRouter();
+  const { data: session, isPending } = useSession();
+
+  useEffect(() => {
+    if (!isPending && !session?.user) {
+      router.push("/admin/login");
+    }
+  }, [isPending, session, router]);
+
+  if (isPending)
+    return <p className="text-center mt-8 text-white">Loading...</p>;
+  if (!session?.user)
+    return <p className="text-center mt-8 text-white">Redirecting...</p>;
+
+  const { user } = session;
+
+  async function handleLogout() {
+    await signOut();
+    router.push("/admin/login")
+  }
 
   return (
     <SidebarMenu>
@@ -98,7 +115,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
               <IconLogout />
               Log out
             </DropdownMenuItem>
