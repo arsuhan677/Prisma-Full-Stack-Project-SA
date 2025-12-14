@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -19,13 +19,12 @@ import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "@/lib/auth-client"
+import { signIn } from "@/lib/auth-client";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
 
@@ -74,7 +73,7 @@ export function LoginForm({
                   <FieldLabel htmlFor="password">Password</FieldLabel>
                   <a
                     href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline cursor-pointer"
+                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
                     Forgot your password?
                   </a>

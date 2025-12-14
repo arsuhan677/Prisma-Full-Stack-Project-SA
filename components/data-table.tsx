@@ -35,6 +35,8 @@ import {
   IconTrendingUp,
 } from "@tabler/icons-react"
 import {
+  ColumnDef,
+  ColumnFiltersState,
   flexRender,
   getCoreRowModel,
   getFacetedRowModel,
@@ -42,12 +44,10 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  Row,
+  SortingState,
   useReactTable,
-  type ColumnDef,
-  type ColumnFiltersState,
-  type Row,
-  type SortingState,
-  type VisibilityState,
+  VisibilityState,
 } from "@tanstack/react-table"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { toast } from "sonner"
@@ -57,10 +57,10 @@ import { useIsMobile } from "@/hooks/use-mobile"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
+  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-  type ChartConfig,
 } from "@/components/ui/chart"
 import { Checkbox } from "@/components/ui/checkbox"
 import {

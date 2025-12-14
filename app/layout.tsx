@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { main } from "@/prisma/seed";
+import { Toaster } from "@/components/ui/sonner";
 // import Header from "@/componenets/header/Header";
 // import Footer from "@/componenets/footer/Footer";
 // import { main } from "@/seed";
@@ -35,6 +36,7 @@ export default function RootLayout({
         {/* <Header /> */}
         {children}
         {/* <Footer /> */}
+        <Toaster />
       </body>
     </html>
   );

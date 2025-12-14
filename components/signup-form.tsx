@@ -1,6 +1,5 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -21,11 +20,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signUp } from "@/lib/auth-client"
 
-export function SignupForm({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-
+export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
 
@@ -49,63 +44,63 @@ export function SignupForm({
   }
 
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-xl">Create your account</CardTitle>
-          <CardDescription>
-            Enter your email below to create your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit}>
+    <Card {...props}>
+      <CardHeader>
+        <CardTitle>Create an account</CardTitle>
+        <CardDescription>
+          Enter your information below to create your account
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit}>
+          <FieldGroup>
+            <Field>
+              <FieldLabel htmlFor="name">Full Name</FieldLabel>
+              <Input name="name" id="name" type="text" placeholder="John Doe" required />
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <Input
+                name="email"
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+              />
+              <FieldDescription>
+                We&apos;ll use this to contact you. We will not share your email
+                with anyone else.
+              </FieldDescription>
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="password">Password</FieldLabel>
+              <Input name="password" id="password" type="password" required />
+              <FieldDescription>
+                Must be at least 8 characters long.
+              </FieldDescription>
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="confirm-password">
+                Confirm Password
+              </FieldLabel>
+              <Input name="confirm-password" id="confirm-password" type="password" required />
+              <FieldDescription>Please confirm your password.</FieldDescription>
+            </Field>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="name">Full Name</FieldLabel>
-                <Input name="name" id="name" type="text" placeholder="John Doe" required />
-              </Field>
-              <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
-                <Input 
-                  name="email"
-                  id="email"
-                  type="email"
-                  placeholder="m@example.com"
-                  required
-                />
-              </Field>
-              <Field>
-                <Field className="grid grid-cols-2 gap-4">
-                  <Field>
-                    <FieldLabel htmlFor="password">Password</FieldLabel>
-                    <Input name="password" id="password" type="password" required />
-                  </Field>
-                  <Field>
-                    <FieldLabel htmlFor="confirm-password">
-                      Confirm Password
-                    </FieldLabel>
-                    <Input name="confirm-fassword" id="confirm-password" type="password" required />
-                  </Field>
-                </Field>
-                <FieldDescription>
-                  Must be at least 8 characters long.
-                </FieldDescription>
-              </Field>
-              <Field>
                 {error && <p className="text-red-500">{error}</p>}
-                <Button type="submit" className="cursor-pointer">Create Account</Button>
-                <FieldDescription className="text-center">
+                <Button type="submit">Create Account</Button>
+                <Button variant="outline" type="button">
+                  Sign up with Google
+                </Button>
+                <FieldDescription className="px-6 text-center">
                   Already have an account? <Link href="/admin/login">Sign in</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>
-          </form>
-        </CardContent>
-      </Card>
-      <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </FieldDescription>
-    </div>
+          </FieldGroup>
+        </form>
+      </CardContent>
+    </Card>
   )
 }

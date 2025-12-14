@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma';
-import ProductCard from './ProductCrad';
+import ProductCard from './ProductCard';
 
 export default async function BestDeals() {
     const products = await prisma.product.findMany();
@@ -26,7 +26,7 @@ export default async function BestDeals() {
             </div>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product} variant="best-deals" />
                 ))}

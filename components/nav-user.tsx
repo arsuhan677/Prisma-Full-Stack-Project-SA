@@ -28,14 +28,13 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "@/lib/auth-client";
 import { useEffect } from "react";
 
+
 export function NavUser() {
   const { isMobile } = useSidebar()
-
   const router = useRouter();
   const { data: session, isPending } = useSession();
 
@@ -54,7 +53,7 @@ export function NavUser() {
 
   async function handleLogout() {
     await signOut();
-    router.push("/admin/login")
+    router.push("/admin/login");
   }
 
   return (

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Hero() {
     return (
@@ -27,7 +27,7 @@ export default function Hero() {
                             <div className="flex flex-col sm:flex-row sm:items-end sm:gap-6">
                                 <div className="flex-shrink-0">
                                     <Image
-                                        src="/assets/hero/main-cap.png"
+                                        src="/assets/image/hero/main-cap.png"
                                         alt="Cap preview"
                                         width={176}
                                         height={176}
@@ -37,14 +37,14 @@ export default function Hero() {
 
                                 <div className="mt-4 sm:mt-0 flex items-center gap-3 sm:gap-4 overflow-x-auto pb-2">
                                     <Image
-                                        src="/assets/hero/cap-thumb.png"
+                                        src="/assets/image/hero/cap-thumb.png"
                                         alt="Thumbnail 1"
                                         width={64}
                                         height={64}
                                         className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md border-2 border-gray-300 hover:border-gray-900 cursor-pointer transition-all flex-shrink-0"
                                     />
                                     <Image
-                                        src="/assets/hero/thumb-3.png"
+                                        src="/assets/image/hero/thumb-3.png"
                                         alt="Thumbnail 2"
                                         width={64}
                                         height={64}
@@ -59,7 +59,7 @@ export default function Hero() {
                 {/* RIGHT PANEL - Hero Image */}
                 <div className="relative w-full lg:bg-gradient-to-br lg:from-gray-100 lg:to-gray-200 order-1 md:order-2">
                     <Image
-                        src="/assets/hero/main-cap.png"
+                        src="/assets/image/hero/main-cap.png"
                         alt="Hero product — brown cap"
                         width={1200}
                         height={900}
