@@ -21,9 +21,6 @@ export default async function Categories() {
                     </div>
                 ))}
             </div>
-            <div>
-                hello world hello bangladesh
-            </div>
         </section>
     );
 }
