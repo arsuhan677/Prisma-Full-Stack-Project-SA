@@ -16,7 +16,7 @@ import {
 import { getCategories } from "./actions"
 import Link from "next/link"
 import Image from "next/image"
-import { DeleteCategoryButton } from "../products/delete-category-button"
+import { DeleteCategoryButton } from "../products/delete-product-button"
 
 export default async function CategoriesPage() {
     const result = await getCategories()

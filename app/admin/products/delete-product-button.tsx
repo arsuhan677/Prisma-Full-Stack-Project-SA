@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { deleteCategory } from "../categories/actions"
+import { deleteProduct } from "./actions"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -17,17 +17,21 @@ import {
 } from "@/components/ui/alert-dialog"
 import { useToast } from "@/hooks/use-toast"
 
-interface DeleteCategoryButtonProps {
+interface DeleteProductButtonProps {
     id: number
     name: string
+    price: number
+    description: string
     productCount: number
 }
 
-export function DeleteCategoryButton({
+export function DeleteProductButton({
     id,
     name,
+    price,
+    description,
     productCount,
-}: DeleteCategoryButtonProps) {
+}: DeleteProductButtonProps) {
     const [isDeleting, setIsDeleting] = useState(false)
     const router = useRouter()
     const { toast } = useToast()
@@ -35,17 +39,17 @@ export function DeleteCategoryButton({
     const handleDelete = async () => {
         setIsDeleting(true)
         try {
-            const result = await deleteCategory(id)
+            const result = await deleteProduct(id)
             if (result.success) {
                 toast({
                     title: "Success",
-                    description: "Category deleted successfully",
+                    description: "Product deleted successfully",
                 })
                 router.refresh()
             } else {
                 toast({
                     title: "Error",
-                    description: result.error || "Failed to delete category",
+                    description: result.error || "Failed to delete product",
                     variant: "destructive",
                 })
             }
@@ -75,7 +79,7 @@ export function DeleteCategoryButton({
                 <AlertDialogHeader>
                     <AlertDialogTitle>Are you sure?</AlertDialogTitle>
                     <AlertDialogDescription>
-                        This will permanently delete the category &quot;{name}&quot;. This action
+                        This will permanently delete the product &quot;{name}&quot;. This action
                         cannot be undone.
                     </AlertDialogDescription>
                 </AlertDialogHeader>

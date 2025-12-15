@@ -13,13 +13,14 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { getCategories } from "./actions"
+import { getProducts } from "./actions"
 import Link from "next/link"
 import Image from "next/image"
-import { DeleteCategoryButton } from "../products/delete-category-button"
+// import { DeleteCategoryButton } from "../products/delete-category-button"
+import { DeleteCategoryButton } from "./delete-product-button"
 
-export default async function CategoriesPage() {
-    const result = await getCategories()
+export default async function ProductsPage() {
+    const result = await getProducts()
 
     return (
         <SidebarProvider
@@ -38,14 +39,14 @@ export default async function CategoriesPage() {
                         <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 px-4 lg:px-6">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h1 className="text-3xl font-bold">Categories</h1>
+                                    <h1 className="text-3xl font-bold">Products</h1>
                                     <p className="text-muted-foreground mt-1">
                                         Manage product categories
                                     </p>
                                 </div>
                                 <Button asChild>
-                                    <Link href="/admin/categories/create">
-                                        Create Category
+                                    <Link href="/admin/products/create">
+                                        Add Product
                                     </Link>
                                 </Button>
                             </div>
@@ -56,7 +57,9 @@ export default async function CategoriesPage() {
                                         <TableHeader>
                                             <TableRow>
                                                 <TableHead>Image</TableHead>
+                                                <TableHead>Price</TableHead>
                                                 <TableHead>Name</TableHead>
+                                                <TableHead>Description</TableHead>
                                                 <TableHead>Products</TableHead>
                                                 <TableHead className="text-right">Actions</TableHead>
                                             </TableRow>
@@ -72,13 +75,13 @@ export default async function CategoriesPage() {
                                                     </TableCell>
                                                 </TableRow>
                                             ) : (
-                                                result.data.map((category) => (
-                                                    <TableRow key={category.id}>
+                                                result.data.map((product) => (
+                                                    <TableRow key={product.id}>
                                                         <TableCell>
-                                                            {category.image ? (
+                                                            {product.image ? (
                                                                 <Image
-                                                                    src={category.image}
-                                                                    alt={category.name}
+                                                                    src={product.image}
+                                                                    alt={product.name}
                                                                     width={40}
                                                                     height={40}
                                                                     className="rounded object-cover"
@@ -90,19 +93,19 @@ export default async function CategoriesPage() {
                                                             )}
                                                         </TableCell>
                                                         <TableCell className="font-medium">
-                                                            {category.name}
+                                                            {product.name}
                                                         </TableCell>
-                                                        <TableCell>{category._count.products}</TableCell>
+                                                        <TableCell>{product._count.products}</TableCell>
                                                         <TableCell className="text-right space-x-2">
                                                             <Button asChild variant="outline" size="sm">
-                                                                <Link href={`/admin/categories/${category.id}/edit`}>
+                                                                <Link href={`/admin/categories/${product.id}/edit`}>
                                                                     Edit
                                                                 </Link>
                                                             </Button>
                                                             <DeleteCategoryButton
-                                                                id={category.id}
-                                                                name={category.name}
-                                                                productCount={category._count.products}
+                                                                id={product.id}
+                                                                name={product.name}
+                                                                productCount={product._count.products}
                                                             />
                                                         </TableCell>
                                                     </TableRow>

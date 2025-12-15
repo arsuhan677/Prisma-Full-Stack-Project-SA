@@ -13,25 +13,29 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { createCategory, updateCategory, type CategoryFormData } from "./actions"
+import { createProduct, updateProduct, type ProductFormData } from "./actions"
 import { useToast } from "@/hooks/use-toast"
 import Image from "next/image"
 
-interface CategoryFormProps {
-    category?: {
+interface ProductFormProps {
+    product?: {
         id: number
         name: string
+        price: string
+        description: string
         image: string | null
     }
 }
 
-export function CategoryForm({ category }: CategoryFormProps) {
+export function ProductForm({ product }: ProductFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isUploading, setIsUploading] = useState(false)
-    const [name, setName] = useState(category?.name || "")
-    const [image, setImage] = useState(category?.image || "")
+    const [name, setName] = useState(product?.name || "")
+    const [image, setImage] = useState(product?.image || "")
+    const [price, setPrice] = useState(product?.price || "")
+    const [ description, setDescription ] = useState(product?.description || "")
     const [selectedFile, setSelectedFile] = useState<File | null>(null)
-    const [previewUrl, setPreviewUrl] = useState(category?.image || "")
+    const [previewUrl, setPreviewUrl] = useState(product?.image || "")
     const router = useRouter()
     const { toast } = useToast()
 
@@ -47,7 +51,7 @@ export function CategoryForm({ category }: CategoryFormProps) {
             reader.readAsDataURL(file)
         } else {
             setSelectedFile(null)
-            setPreviewUrl(category?.image || "")
+            setPreviewUrl(product?.image || "")
         }
     }
 
@@ -85,23 +89,25 @@ export function CategoryForm({ category }: CategoryFormProps) {
                 imageUrl = uploadResult.url
             }
 
-            const formData: CategoryFormData = {
+            const formData: ProductFormData = {
                 name,
+                price,
+                description,
                 image: imageUrl || undefined,
             }
 
-            const result = category
-                ? await updateCategory(category.id, formData)
-                : await createCategory(formData)
+            const result = product
+                ? await updateProduct(product.id, formData)
+                : await createProduct(formData)
 
             if (result.success) {
                 toast({
                     title: "Success",
-                    description: category
-                        ? "Category updated successfully"
-                        : "Category created successfully",
+                    description: product
+                        ? "Product updated successfully"
+                        : "Product created successfully",
                 })
-                router.push("/admin/categories")
+                router.push("/admin/products")
                 router.refresh()
             } else {
                 toast({
@@ -126,11 +132,11 @@ export function CategoryForm({ category }: CategoryFormProps) {
         <form onSubmit={handleSubmit}>
             <Card>
                 <CardHeader>
-                    <CardTitle>{category ? "Edit" : "Create"} Category</CardTitle>
+                    <CardTitle>{product ? "Edit" : "Create"} Product</CardTitle>
                     <CardDescription>
-                        {category
-                            ? "Update the category information below"
-                            : "Fill in the details to create a new category"}
+                        {product
+                            ? "Update the product information below"
+                            : "Fill in the details to create a new product"}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -142,13 +148,39 @@ export function CategoryForm({ category }: CategoryFormProps) {
                             id="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            placeholder="Electronics, Clothing, etc."
+                            placeholder="Product name..."
                             required
                         />
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="image">Category Image</Label>
+                        <Label htmlFor="price">
+                            Price <span className="text-destructive">*</span>
+                        </Label>
+                        <Input
+                            id="price"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                            placeholder="price..."
+                            required
+                        />
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="description">
+                            Descrioption <span className="text-destructive">*</span>
+                        </Label>
+                        <Input
+                            id="description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            placeholder="Description..."
+                            required
+                        />
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="image">Product Image</Label>
                         <Input
                             id="image"
                             type="file"
@@ -167,7 +199,7 @@ export function CategoryForm({ category }: CategoryFormProps) {
                             <div className="relative w-40 h-40 border rounded-lg overflow-hidden">
                                 <Image
                                     src={previewUrl}
-                                    alt="Category preview"
+                                    alt="Product preview"
                                     fill
                                     className="object-cover"
                                 />
@@ -181,14 +213,14 @@ export function CategoryForm({ category }: CategoryFormProps) {
                             ? "Uploading..."
                             : isSubmitting
                                 ? "Saving..."
-                                : category
-                                    ? "Update Category"
-                                    : "Create Category"}
+                                : product
+                                    ? "Update Product"
+                                    : "Create Product"}
                     </Button>
                     <Button
                         type="button"
                         variant="outline"
-                        onClick={() => router.push("/admin/categories")}
+                        onClick={() => router.push("/admin/products")}
                         disabled={isSubmitting || isUploading}
                     >
                         Cancel

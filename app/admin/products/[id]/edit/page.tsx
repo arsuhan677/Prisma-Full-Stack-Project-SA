@@ -4,20 +4,19 @@ import {
     SidebarInset,
     SidebarProvider,
 } from "@/components/ui/sidebar"
-import { getCategoryById } from "../../actions"
+import { getProductById } from "../../actions"
 import { notFound } from "next/navigation"
-// import { CategoryForm } from "../../category-form"
-import { CategoryForm } from "../../category-from"
+import { ProductForm } from "../../product-from"
 
 
-export default async function EditCategoryPage({
+export default async function EditProductPage({
     params,
 }: {
     params: Promise<{ id: string }>
 }) {
     const { id: paramId } = await params
     const id = parseInt(paramId)
-    const result = await getCategoryById(id)
+    const result = await getProductById(id)
 
     if (!result.success || !result.data) {
         notFound()
@@ -39,14 +38,14 @@ export default async function EditCategoryPage({
                     <div className="@container/main flex flex-1 flex-col gap-2">
                         <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 px-4 lg:px-6">
                             <div>
-                                <h1 className="text-3xl font-bold">Edit Category</h1>
+                                <h1 className="text-3xl font-bold">Edit Product</h1>
                                 <p className="text-muted-foreground mt-1">
-                                    Update category information
+                                    Update product information
                                 </p>
                             </div>
 
                             <div className="max-w-2xl">
-                                <CategoryForm category={result.data} />
+                                <ProductForm product={result.data} />
                             </div>
                         </div>
                     </div>

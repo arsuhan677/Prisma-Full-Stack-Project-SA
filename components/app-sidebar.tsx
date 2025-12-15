@@ -43,6 +43,11 @@ const data = {
       url: "/admin/products",
       icon: IconDatabase,
     },
+    {
+      title: "Users",
+      url: "/admin/products",
+      icon: IconDatabase,
+    },
   ],
 }
 
