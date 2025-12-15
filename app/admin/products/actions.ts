@@ -16,13 +16,6 @@ export async function getProducts() {
             orderBy: {
                 name: "asc",
             },
-            include: {
-                _count: {
-                    select: {
-                        products: true,
-                    },
-                },
-            },
         })
         return { success: true, data: products }
     } catch (error) {
@@ -54,6 +47,7 @@ export async function createProduct(data: ProductFormData) {
                 price: data.price,
                 description: data.description,
                 image: data.image || null,
+                // image: data.image || null,
             },
         })
         revalidatePath("/admin/products")
@@ -89,13 +83,6 @@ export async function deleteProduct(id: number) {
         // Check if category has products
         const product = await prisma.product.findUnique({
             where: { id },
-            include: {
-                _count: {
-                    select: {
-                        products: true,
-                    },
-                },
-            },
         })
 
         if (!product) {

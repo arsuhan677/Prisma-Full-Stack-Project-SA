@@ -112,7 +112,7 @@ export function ProductForm({ product }: ProductFormProps) {
             } else {
                 toast({
                     title: "Error",
-                    description: result.error || "Failed to save category",
+                    description: result.error || "Failed to save products",
                     variant: "destructive",
                 })
             }

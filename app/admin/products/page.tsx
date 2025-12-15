@@ -17,7 +17,7 @@ import { getProducts } from "./actions"
 import Link from "next/link"
 import Image from "next/image"
 // import { DeleteCategoryButton } from "../products/delete-category-button"
-import { DeleteCategoryButton } from "./delete-product-button"
+import { DeleteProductButton } from "./delete-product-button"
 
 export default async function ProductsPage() {
     const result = await getProducts()
@@ -60,7 +60,6 @@ export default async function ProductsPage() {
                                                 <TableHead>Price</TableHead>
                                                 <TableHead>Name</TableHead>
                                                 <TableHead>Description</TableHead>
-                                                <TableHead>Products</TableHead>
                                                 <TableHead className="text-right">Actions</TableHead>
                                             </TableRow>
                                         </TableHeader>
@@ -68,7 +67,7 @@ export default async function ProductsPage() {
                                             {result.data.length === 0 ? (
                                                 <TableRow>
                                                     <TableCell
-                                                        colSpan={4}
+                                                        colSpan={3}
                                                         className="text-center py-8 text-muted-foreground"
                                                     >
                                                         No categories found. Create one to get started.
@@ -78,7 +77,7 @@ export default async function ProductsPage() {
                                                 result.data.map((product) => (
                                                     <TableRow key={product.id}>
                                                         <TableCell>
-                                                            {product.image ? (
+                                                            {product.id ? (
                                                                 <Image
                                                                     src={product.image}
                                                                     alt={product.name}
@@ -95,17 +94,17 @@ export default async function ProductsPage() {
                                                         <TableCell className="font-medium">
                                                             {product.name}
                                                         </TableCell>
-                                                        <TableCell>{product._count.products}</TableCell>
+                                                        <TableCell>{product.price}</TableCell>
                                                         <TableCell className="text-right space-x-2">
                                                             <Button asChild variant="outline" size="sm">
-                                                                <Link href={`/admin/categories/${product.id}/edit`}>
+                                                                <Link href={`/admin/products/${product.id}/edit`}>
                                                                     Edit
                                                                 </Link>
                                                             </Button>
-                                                            <DeleteCategoryButton
+                                                            <DeleteProductButton
                                                                 id={product.id}
                                                                 name={product.name}
-                                                                productCount={product._count.products}
+                                                                productCount={product.id}
                                                             />
                                                         </TableCell>
                                                     </TableRow>
@@ -116,7 +115,7 @@ export default async function ProductsPage() {
                                 </div>
                             ) : (
                                 <div className="border rounded-lg p-8 text-center text-destructive">
-                                    {result.error || "Failed to load categories"}
+                                    {result.error || "Failed to load product"}
                                 </div>
                             )}
                         </div>

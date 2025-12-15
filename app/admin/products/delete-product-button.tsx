@@ -22,6 +22,7 @@ interface DeleteProductButtonProps {
     name: string
     price: number
     description: string
+    image: string
     productCount: number
 }
 
@@ -30,6 +31,7 @@ export function DeleteProductButton({
     name,
     price,
     description,
+    image,
     productCount,
 }: DeleteProductButtonProps) {
     const [isDeleting, setIsDeleting] = useState(false)
