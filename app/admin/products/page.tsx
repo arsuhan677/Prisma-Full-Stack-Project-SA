@@ -31,7 +31,6 @@ export default async function ProductsPage() {
                 } as React.CSSProperties
             }
         >
-            <h4>hello</h4>
             <AppSidebar variant="inset" />
             <SidebarInset>
                 <SiteHeader />

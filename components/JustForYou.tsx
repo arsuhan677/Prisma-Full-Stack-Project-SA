@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import ProductCard from './ProductCard';
-import { Product } from '@/types/product';
+// import { Product } from '@/types/product';
+// import {} from ''
 
 export default function JustForYou() {
     const [activeCategory, setActiveCategory] = useState('All');
@@ -16,7 +17,7 @@ export default function JustForYou() {
             price: 3500,
             originalPrice: 5000,
             discount: 30,
-            image: '/assets/image/just-for-you/Rectangle 19333.png',
+            image: '/assets/image/just-for-you/Rectangle 19333 (1).png',
             category: 'Best Sellers',
         },
         {
@@ -43,7 +44,7 @@ export default function JustForYou() {
             price: 3800,
             originalPrice: 5200,
             discount: 27,
-            image: '/assets/image/just-for-you/Rectangle 19333 (3).png',
+            image: '/assets/image/just-for-you/Rectangle 19333 (2).png',
             category: 'Best Sellers',
         },
         {
@@ -52,7 +53,7 @@ export default function JustForYou() {
             price: 4200,
             originalPrice: 5800,
             discount: 28,
-            image: '/assets/image/just-for-you/Rectangle 19333 (4).png',
+            image: '/assets/image/just-for-you/Rectangle 19333 (1).png',
             category: 'New Arrivals',
         },
         {
@@ -61,7 +62,25 @@ export default function JustForYou() {
             price: 3600,
             originalPrice: 4800,
             discount: 25,
-            image: '/assets/image/just-for-you/Rectangle 19333 (5).png',
+            image: '/assets/image/just-for-you/Rectangle 19333 (2).png',
+            category: 'Featured',
+        },
+        {
+            id: 5,
+            name: 'Sport Performance Cap',
+            price: 4200,
+            originalPrice: 5800,
+            discount: 28,
+            image: '/assets/image/just-for-you/Rectangle 19333 (1).png',
+            category: 'New Arrivals',
+        },
+        {
+            id: 6,
+            name: 'Retro Dad Hat',
+            price: 3600,
+            originalPrice: 4800,
+            discount: 25,
+            image: '/assets/image/just-for-you/Rectangle 19333 (2).png',
             category: 'Featured',
         },
         {
@@ -79,7 +98,7 @@ export default function JustForYou() {
             price: 2500,
             originalPrice: 3500,
             discount: 29,
-            image: '/assets/image/just-for-you/Rectangle 19333 (7).png',
+            image: '/assets/image/just-for-you/Rectangle 19333 (1).png',
             category: 'New Arrivals',
         },
     ];
@@ -122,7 +141,7 @@ export default function JustForYou() {
             </div>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-4">
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
@@ -130,7 +149,7 @@ export default function JustForYou() {
 
             {/* See All Button */}
             <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-14 flex items-center justify-center">
-                <button className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white text-sm sm:text-base font-semibold px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 shadow-md hover:shadow-lg transition-all duration-200 uppercase tracking-wide">
+                <button className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white text-sm sm:text-base font-semibold px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 shadow-md hover:shadow-lg transition-all duration-200 uppercase tracking-wide cursor-pointer">
                     SEE ALL PRODUCT
                 </button>
             </div>

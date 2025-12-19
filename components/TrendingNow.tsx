@@ -68,7 +68,7 @@ export default function TrendingNow() {
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-6">
                 {products.map((product) => (
                     <article
                         key={product.id}
@@ -81,7 +81,7 @@ export default function TrendingNow() {
                                     alt={product.name}
                                     width={400}
                                     height={400}
-                                    className="h-full w-full object-cover md:min-h-[250px] xl:min-h-[280px] group-hover:scale-105 transition-transform duration-300"
+                                    className="h-full w-full object-cover md:min-h-[250px] xl:min-h-[160px] group-hover:scale-105 transition-transform duration-300"
                                 />
                             </figure>
                             <div className="col-span-12 md:col-span-7 p-5 sm:p-6 md:p-7 xl:p-8 flex flex-col">
@@ -90,11 +90,11 @@ export default function TrendingNow() {
                                     <span className="text-lg font-bold">20% OFF</span>
                                 </div>
 
-                                <div className="mt-5 w-full text-gray-900 text-xl font-semibold font-['Inter'] leading-7">
+                                <div className="mt-5 w-full text-gray-900 text-lg font-semibold font-['Inter'] leading-7">
                                     {product.name}
                                 </div>
 
-                                <div className="mt-6 inline-flex flex-col justify-start items-start">
+                                <div className="mt-6 inline-flex flex gap-6">
                                     <div className="text-right justify-end">
                                         <span className="text-neutral-800 text-2xl font-normal font-['SutonnyMJ'] leading-4">৳</span>
                                         <span className="text-neutral-800 text-xl font-semibold font-['Inter'] leading-7">{product.price}</span>
