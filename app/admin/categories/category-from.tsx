@@ -63,6 +63,8 @@ export function CategoryForm({ category }: CategoryFormProps) {
                 setIsUploading(true)
                 const uploadFormData = new FormData()
                 uploadFormData.append("file", selectedFile)
+                // uploadFormData.append("file", selectedFile)
+
 
                 const uploadResponse = await fetch("/api/upload", {
                     method: "POST",
