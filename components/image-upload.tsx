@@ -6,12 +6,14 @@ import Image from "next/image"
 import { useState } from "react"
 
 interface ImageUploadProps{
+    label: string,
     value: string,
     disabled: boolean,
     onFileSelected: (file: File) => void
 }
 
 export default function ImageUpload({
+    label,
     value,
     disabled,
     onFileSelected
@@ -36,7 +38,7 @@ export default function ImageUpload({
     <div>
 
         <div className="space-y-2">
-                        <Label htmlFor="image">Category Image</Label>
+                        <Label htmlFor="image">{label}</Label>
                         <Input
                             id="image"
                             type="file"
@@ -45,17 +47,17 @@ export default function ImageUpload({
                             disabled={disabled}
                         />
                         <p className="text-sm text-muted-foreground">
-                            Upload an image for this category (JPEG, PNG, WEBP, or GIF, max 5MB)
+                            Upload an image for this {label} (JPEG, PNG, WEBP, or GIF, max 5MB)
                         </p>
                     </div>
 
                     {previewUrl && (
                         <div className="space-y-2">
-                            <Label>Image Preview</Label>
+                            <Label> {label} Image Preview</Label>
                             <div className="relative w-40 h-40 border rounded-lg overflow-hidden">
                                 <Image
                                     src={previewUrl}
-                                    alt="Category preview"
+                                    alt={`${label} preview`}
                                     fill
                                     className="object-cover"
                                 />

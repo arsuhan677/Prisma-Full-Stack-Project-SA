@@ -4,8 +4,9 @@ import {
     SidebarInset,
     SidebarProvider,
 } from "@/components/ui/sidebar"
-// import { CategoryForm } from "../category-form"
 import { ProductForm } from "../product-from"
+// import { CategoryForm } from "../category-form"
+// import { ProductForm } from "../product-from"
 
 export default function CreateProductPage() {
     return (

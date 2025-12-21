@@ -5,8 +5,9 @@ import { revalidatePath } from "next/cache"
 
 export type ProductFormData = {
     name: string
-    price: number
+    price: number | string
     description: string
+    categoryId: number
     image?: string
 }
 
@@ -14,8 +15,11 @@ export async function getProducts() {
     try {
         const products = await prisma.product.findMany({
             orderBy: {
-                name: "asc",
+                id: "desc",
             },
+            include: {
+                category: true,
+            }
         })
         return { success: true, data: products }
     } catch (error) {
@@ -44,10 +48,10 @@ export async function createProduct(data: ProductFormData) {
         const product = await prisma.product.create({
             data: {
                 name: data.name,
-                price: data.price,
+                price: Number(data.price),
                 description: data.description,
                 image: data.image || null,
-                // image: data.image || null,
+                categoryId: data.categoryId,
             },
         })
         revalidatePath("/admin/products")
@@ -64,9 +68,10 @@ export async function updateProduct(id: number, data: ProductFormData) {
             where: { id },
             data: {
                 name: data.name,
-                price: data.price,
+                price: Number(data.price),
                 description: data.description,
                 image: data.image || null,
+                categoryId: data.categoryId
             },
         })
         revalidatePath("/admin/products")
@@ -80,23 +85,6 @@ export async function updateProduct(id: number, data: ProductFormData) {
 
 export async function deleteProduct(id: number) {
     try {
-        // Check if category has products
-        const product = await prisma.product.findUnique({
-            where: { id },
-        })
-
-        if (!product) {
-            return { success: false, error: "Product not found" }
-        }
-
-        // if (product._count.products > 0) {
-            if (product) {
-            return {
-                success: false,
-                // error: `Cannot delete category with ${product._count.products} product(s)`,
-            }
-        }
-
         await prisma.product.delete({
             where: { id },
         })

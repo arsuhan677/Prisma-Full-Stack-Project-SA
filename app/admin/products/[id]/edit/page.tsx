@@ -45,7 +45,8 @@ export default async function EditProductPage({
                             </div>
 
                             <div className="max-w-2xl">
-                                <ProductForm product={result.data} />
+                                {/* <ProductForm product={result.data} /> */}
+                                <ProductForm product={result.data}/>
                             </div>
                         </div>
                     </div>

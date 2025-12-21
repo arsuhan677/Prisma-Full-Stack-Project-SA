@@ -20,19 +20,11 @@ import { useToast } from "@/hooks/use-toast"
 interface DeleteProductButtonProps {
     id: number
     name: string
-    price: number
-    description: string
-    image: string
-    productCount: number
 }
 
 export function DeleteProductButton({
     id,
     name,
-    price,
-    description,
-    image,
-    productCount,
 }: DeleteProductButtonProps) {
     const [isDeleting, setIsDeleting] = useState(false)
     const router = useRouter()
@@ -72,7 +64,7 @@ export function DeleteProductButton({
                 <Button
                     variant="destructive"
                     size="sm"
-                    disabled={productCount > 0}
+                    // disabled={productCount > 0}
                 >
                     Delete
                 </Button>
