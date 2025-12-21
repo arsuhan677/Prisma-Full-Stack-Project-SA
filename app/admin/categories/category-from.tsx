@@ -15,7 +15,8 @@ import {
 } from "@/components/ui/card"
 import { createCategory, updateCategory, type CategoryFormData } from "./actions"
 import { useToast } from "@/hooks/use-toast"
-import Image from "next/image"
+import ImageUpload from "@/components/image-upload"
+import { UploadImage } from "@/lib/image-upload"
 
 interface CategoryFormProps {
     category?: {
@@ -29,62 +30,22 @@ export function CategoryForm({ category }: CategoryFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isUploading, setIsUploading] = useState(false)
     const [name, setName] = useState(category?.name || "")
-    const [image, setImage] = useState(category?.image || "")
-    const [selectedFile, setSelectedFile] = useState<File | null>(null)
-    const [previewUrl, setPreviewUrl] = useState(category?.image || "")
+    const [file, setFile] = useState<File | null>(null)
     const router = useRouter()
     const { toast } = useToast()
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0]
-        if (file) {
-            setSelectedFile(file)
-            // Create preview URL
-            const reader = new FileReader()
-            reader.onloadend = () => {
-                setPreviewUrl(reader.result as string)
-            }
-            reader.readAsDataURL(file)
-        } else {
-            setSelectedFile(null)
-            setPreviewUrl(category?.image || "")
-        }
-    }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsSubmitting(true)
 
         try {
-            let imageUrl = image
+            let imageUrl = category?.image || "";
 
-            // Upload file if a new file was selected
-            if (selectedFile) {
+            if(file) {
                 setIsUploading(true)
-                const uploadFormData = new FormData()
-                uploadFormData.append("file", selectedFile)
-                // uploadFormData.append("file", selectedFile)
-
-
-                const uploadResponse = await fetch("/api/upload", {
-                    method: "POST",
-                    body: uploadFormData,
-                })
-
-                const uploadResult = await uploadResponse.json()
+                const uploadResponse = await UploadImage(file, "categories")
                 setIsUploading(false)
-
-                if (!uploadResult.success) {
-                    toast({
-                        title: "Upload Error",
-                        description: uploadResult.error || "Failed to upload image",
-                        variant: "destructive",
-                    })
-                    setIsSubmitting(false)
-                    return
-                }
-
-                imageUrl = uploadResult.url
+                imageUrl = uploadResponse
             }
 
             const formData: CategoryFormData = {
@@ -149,33 +110,13 @@ export function CategoryForm({ category }: CategoryFormProps) {
                         />
                     </div>
 
-                    <div className="space-y-2">
-                        <Label htmlFor="image">Category Image</Label>
-                        <Input
-                            id="image"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            disabled={isSubmitting}
-                        />
-                        <p className="text-sm text-muted-foreground">
-                            Upload an image for this category (JPEG, PNG, WEBP, or GIF, max 5MB)
-                        </p>
-                    </div>
+                    <ImageUpload
+                        value={category?.image || ""}
+                        disabled={isSubmitting || isUploading}
+                        onFileSelected={(file) => setFile(file)}
+                     />
 
-                    {previewUrl && (
-                        <div className="space-y-2">
-                            <Label>Image Preview</Label>
-                            <div className="relative w-40 h-40 border rounded-lg overflow-hidden">
-                                <Image
-                                    src={previewUrl}
-                                    alt="Category preview"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                        </div>
-                    )}
+                    
                 </CardContent>
                 <CardFooter className="flex gap-2">
                     <Button type="submit" disabled={isSubmitting || !name || isUploading}>
