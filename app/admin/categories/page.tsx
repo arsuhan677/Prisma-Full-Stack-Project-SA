@@ -38,6 +38,9 @@ export default async function CategoriesPage() {
                         <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 px-4 lg:px-6">
                             <div className="flex items-center justify-between">
                                 <div>
+                                    <div>
+                                        hello world
+                                    </div>
                                     <h1 className="text-3xl font-bold">Categories</h1>
                                     <p className="text-muted-foreground mt-1">
                                         Manage product categories
