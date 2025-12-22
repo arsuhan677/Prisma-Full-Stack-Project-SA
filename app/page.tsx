@@ -1,15 +1,18 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Hero from '@/components/Hero';
-import Categories from '@/components/Categories';
-import BestDeals from '@/components/BestDeals';
-import HeroTwo from '@/components/HeroTwo';
-import JustForYou from '@/components/JustForYou';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
+import Hero from '@/components/sections/Hero';
+import Categories from '@/components/sections/Categories';
+import BestDeals from '@/components/sections/BestDeals';
+import HeroTwo from '@/components/sections/HeroTwo';
+import JustForYou from '@/components/sections/JustForYou';
 import Newsletter from '@/components/Newsletter';
-import TrendingNow from '@/components/TrendingNow';
+import TrendingNow from '@/components/sections/TrendingNow';
 import ServiceHighlights from '@/components/ServiceHighlights';
+import prisma from '@/lib/prisma';
 
-export default function Home() {
+export default async function Home() {
+  const products = await prisma.product.findMany();
+  // const categories = await prisma.category.findMany();
   return (
     <>
       <Header />
@@ -19,7 +22,7 @@ export default function Home() {
 
         <div className="space-y-[50px] md:space-y-[80px] lg:space-y-[120px] mt-[50px] md:mt-[80px] lg:mt-[120px]">
           <Categories />
-          <BestDeals />
+          <BestDeals products={products} />
         </div>
 
         <div className="mt-[50px] md:mt-[80px] lg:mt-[120px]">
@@ -27,7 +30,7 @@ export default function Home() {
         </div>
 
         <div className="space-y-[50px] md:space-y-[80px] lg:space-y-[120px] mt-[50px] md:mt-[80px] lg:mt-[120px]">
-          <JustForYou />
+          <JustForYou products={products} />
           <Newsletter />
           <TrendingNow />
           <ServiceHighlights />

@@ -1,8 +1,8 @@
-import prisma from '@/lib/prisma';
+// import prisma from '@/lib/prisma';
 import ProductCard from './ProductCard';
 
-export default async function BestDeals() {
-    const products = await prisma.product.findMany();
+export default function BestDeals({ products }: {products: any}) {
+    // const products = await prisma.product.findMany();
 
     return (
         <section className="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-4">
@@ -27,7 +27,7 @@ export default async function BestDeals() {
 
             {/* Products Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
-                {products.map((product) => (
+                {products.map((product: any) => (
                     <ProductCard key={product.id} product={product} variant="best-deals" />
                 ))}
             </div>
