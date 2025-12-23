@@ -6,7 +6,8 @@ import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { increaseQty, decreaseQty, removeFromCart } from "@/store/cartSlice";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import ShoppingStep from "@/components/shared/Shopsteps";
+// import ShoppingStep from "@/components/shared/Shopsteps";
+import ShoppingStep from "@/components/shared/ShopSteps";
 import { steps } from "@/components/shared/steps";
 import { FaRegHeart } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
@@ -102,7 +103,7 @@ export default function Cart() {
                 JSON.stringify(selectedItems)
             );
         }
-        router.push("/Checkout");
+        router.push("/Chackout");
     };
 
     return (

@@ -59,7 +59,6 @@ export async function updateOrderStatus(id: number, status: OrderStatus) {
             where: { id },
             data: { status },
         })
-
         revalidatePath("/admin/orders")
         revalidatePath(`/admin/orders/${id}`)
 
