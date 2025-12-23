@@ -1,6 +1,8 @@
 // import RelatedProduct from "@/components/shared/RelatedProduct";
 // import DetailsTitle from "@/components/shared/DetailsTitle";
 import prisma from "@/lib/prisma";
+import DetailsTitle from "@/components/shared/DetailsTitle";
+import RelatedProduct from "@/components/shared/RelatedProduct";
 import ProductDetails from "@/components/sections/product-details";
 import { Product } from "@/app/generated/prisma/client";
 
@@ -20,7 +22,7 @@ export default async function ProdutctDetails({
   return (
     <>
       <main>
-        <DetailsTitle
+        <DetailsTitle 
           items={[
             "Home",
             "Men's Caps & Hats",
@@ -32,7 +34,7 @@ export default async function ProdutctDetails({
           <ProductDetails product={product as Product} />
 
           {/* RELATED PRODUCTS */}
-          <RelatedProduct />
+          {/* <RelatedProduct /> */}
         </section>
       </main>
     </>

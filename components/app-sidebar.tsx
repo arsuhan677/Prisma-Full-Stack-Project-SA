@@ -6,6 +6,7 @@ import {
   IconDatabase,
   IconFolder,
   IconInnerShadowTop,
+  IconShoppingCart,
 } from "@tabler/icons-react"
 
 
@@ -23,7 +24,7 @@ import {
 
 const data = {
   user: {
-    name: "shadcn",
+    name: "suhan",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
@@ -44,9 +45,9 @@ const data = {
       icon: IconDatabase,
     },
     {
-      title: "Users",
-      url: "/admin/products",
-      icon: IconDatabase,
+      title: "Orders",
+      url: "/admin/orders",
+      icon: IconShoppingCart,
     },
   ],
 }
@@ -63,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">AR Suhan.</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

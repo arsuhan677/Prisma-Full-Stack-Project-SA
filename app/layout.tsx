@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { main } from "@/prisma/seed";
 import { Toaster } from "@/components/ui/sonner";
+import { Providers } from "./providers";
 // import Header from "@/componenets/header/Header";
 // import Footer from "@/componenets/footer/Footer";
 // import { main } from "@/seed";
@@ -33,10 +34,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Providers>
         {/* <Header /> */}
         {children}
         {/* <Footer /> */}
         <Toaster />
+        </Providers>
       </body>
     </html>
   );
