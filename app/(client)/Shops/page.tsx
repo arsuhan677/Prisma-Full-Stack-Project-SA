@@ -2,7 +2,7 @@ import Breadcrumb from "@/components/shared/Breadcump";
 import ShopCategory from "@/components/shared/ShopCat";
 import ShopFilter from "@/components/shared/ShopFilt";
 import ProductCard from "@/components/sections/ProductCard";
-import { Product } from "@/types/product";
+// import { Product } from "@/types/product";
 const products: Product[] = [
     {
       id: 1,
@@ -114,7 +114,7 @@ const products: Product[] = [
     },
   ];
 
-export default function ShopTwo() {
+export default function ShopTwo({ products }: { products: any[] }) {
   return (
     <>
       <main>
@@ -130,7 +130,7 @@ export default function ShopTwo() {
                 {/* Products Grid/List */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
                    <div className="grid grid-cols-1">
-                       {products.slice(0, 1).map((product) => (
+                       {products.map((product) => (
                           <ProductCard key={product.id} product={product} />
                       ))}
                    </div>

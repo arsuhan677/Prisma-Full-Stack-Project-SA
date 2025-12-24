@@ -32,7 +32,7 @@ export default async function Home() {
         <div className="space-y-[50px] md:space-y-[80px] lg:space-y-[120px] mt-[50px] md:mt-[80px] lg:mt-[120px]">
           <JustForYou products={products} />
           <Newsletter />
-          <TrendingNow />
+          <TrendingNow products={products} />
           <ServiceHighlights />
         </div>
       </main>

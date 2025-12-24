@@ -64,3 +64,8 @@ export default function BestDeals({ products }: { products: any[] }) {
     </section>
   );
 }
+
+
+
+
+

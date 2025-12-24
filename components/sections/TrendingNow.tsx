@@ -1,50 +1,50 @@
 import Image from 'next/image';
 
-export default function TrendingNow() {
-    const products = [
-        {
-            id: 1,
-            name: 'New York Yankees Essential Black Cap',
-            price: 5000,
-            originalPrice: 6500,
-            image: '/assets/image/trending/Rectangle 19333 (1).png',
-        },
-        {
-            id: 2,
-            name: 'Los Angeles Dodgers Premium Cap',
-            price: 5000,
-            originalPrice: 6500,
-            image: '/assets/image/trending/Rectangle 19333 (2).png',
-        },
-        {
-            id: 3,
-            name: 'Boston Red Sox Vintage Cap',
-            price: 5000,
-            originalPrice: 6500,
-            image: '/assets/image/trending/Rectangle 19333 (3).png',
-        },
-        {
-            id: 4,
-            name: 'Chicago Cubs Classic Cap',
-            price: 5000,
-            originalPrice: 6500,
-            image: '/assets/image/trending/Rectangle 19333 (4).png',
-        },
-        {
-            id: 5,
-            name: 'San Francisco Giants Cap',
-            price: 5000,
-            originalPrice: 6500,
-            image: '/assets/image/trending/Rectangle 19333 (5).png',
-        },
-        {
-            id: 6,
-            name: 'Detroit Tigers Retro Cap',
-            price: 5000,
-            originalPrice: 6500,
-            image: '/assets/image/trending/Rectangle 19333.png',
-        },
-    ];
+export default function TrendingNow({products}: {products: any}) {
+    // const products = [
+    //     {
+    //         id: 1,
+    //         name: 'New York Yankees Essential Black Cap',
+    //         price: 5000,
+    //         originalPrice: 6500,
+    //         image: '/assets/image/trending/Rectangle 19333 (1).png',
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'Los Angeles Dodgers Premium Cap',
+    //         price: 5000,
+    //         originalPrice: 6500,
+    //         image: '/assets/image/trending/Rectangle 19333 (2).png',
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'Boston Red Sox Vintage Cap',
+    //         price: 5000,
+    //         originalPrice: 6500,
+    //         image: '/assets/image/trending/Rectangle 19333 (3).png',
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Chicago Cubs Classic Cap',
+    //         price: 5000,
+    //         originalPrice: 6500,
+    //         image: '/assets/image/trending/Rectangle 19333 (4).png',
+    //     },
+    //     {
+    //         id: 5,
+    //         name: 'San Francisco Giants Cap',
+    //         price: 5000,
+    //         originalPrice: 6500,
+    //         image: '/assets/image/trending/Rectangle 19333 (5).png',
+    //     },
+    //     {
+    //         id: 6,
+    //         name: 'Detroit Tigers Retro Cap',
+    //         price: 5000,
+    //         originalPrice: 6500,
+    //         image: '/assets/image/trending/Rectangle 19333.png',
+    //     },
+    // ];
 
     return (
         <section className="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-4">
@@ -69,7 +69,7 @@ export default function TrendingNow() {
 
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-6">
-                {products.map((product) => (
+                {products.map((product: any) => (
                     <article
                         key={product.id}
                         className="border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300 group bg-white"

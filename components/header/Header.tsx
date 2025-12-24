@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppSelector } from '@/store/hooks';
 import { CiLocationOn, CiUser } from "react-icons/ci";
 import { IoCartOutline, IoHome, IoSearch } from "react-icons/io5";
@@ -12,6 +12,7 @@ import { GiBilledCap } from "react-icons/gi";
 // import Image from 'next/image';
 import Link from 'next/link';
 
+
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [categoryOpen, setCategoryOpen] = useState(false);
@@ -22,6 +23,27 @@ export default function Header() {
     const cartItemCount = useAppSelector((state) =>
         state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
     );
+
+
+//     const [user, setUser] = useState("");
+//     // login
+//     const handleLogout = async () => {
+//     const { error } = await supabase.auth.signOut();
+//     if (error) {
+//       alert(error.message);
+//       return;
+//     }
+//     navigate("/login");
+//   };
+
+//   useEffect(() => {
+//     const checkSession = async () => {
+//       const user = (await supabase.auth.getSession())?.data.session.user;
+//       setUser(user);
+//       if (user) navigate("/");
+//     };
+//     checkSession();
+//   }, []);
 
     return (
         <header className="sticky top-0 z-50 shadow-lg">
@@ -48,14 +70,35 @@ export default function Header() {
                 </div>
 
                 {/* Login/Register */}
-                <div className="text-right relative z-10">
-                    <Link href="#" className="hover:text-indigo-300 font-medium transition-colors duration-200 flex items-center space-x-1">
+                <div className="text-right relative z-10 flex gap-2">
+                    {/* {user && (
+              <button
+                onClick={handleLogout}
+                className="cursor-pointer"
+              >
+                SignOut
+              </button>
+                    )} */}
+                    
+                     <Link href={"/admin/login"} className="hover:text-indigo-300 font-medium transition-colors duration-200 flex items-center space-x-1">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
-                        <span className="hidden sm:inline">Login/ Register</span>
+                        <span className="hidden sm:inline">Login /</span>
                     </Link>
+                    
+                    
+                    
+                    <Link href={"/admin/signup"} className="hover:text-indigo-300 font-medium transition-colors duration-200 flex items-center space-x-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span className="hidden sm:inline">Register</span>
+                    </Link>
+                    
+                    
                 </div>
             </div>
 
@@ -75,7 +118,7 @@ export default function Header() {
                 <div className="hidden lg:flex items-center flex-1 justify-start z-20">
                     <nav className="flex space-x-6 xl:space-x-10 text-base xl:text-lg font-semibold tracking-tight">
                         <Link href="/" className="nav-link-animated text-gray-900">Home</Link>
-                        <Link href="#" className="nav-link-animated text-gray-900">Shop</Link>
+                        <Link href="/Shop" className="nav-link-animated text-gray-900">Shop</Link>
 
                         {/* Category Dropdown */}
                         <div className="relative dropdown">
