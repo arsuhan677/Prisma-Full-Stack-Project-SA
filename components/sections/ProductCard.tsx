@@ -43,9 +43,9 @@ export default function ProductCard({ product, variant = 'grid' }: ProductCardPr
                                     e.stopPropagation()
                                     dispatch(addToCart(product))
                                 }}
-                                className="bg-white text-gray-900 px-6 py-3 flex items-center space-x-2 hover:bg-gray-100 transition-colors text-lg font-semibold shadow-2xl transform group-hover:scale-105 duration-300 cursor-pointer">
+                                className="bg-white text-gray-900 px-6 py-2 flex items-center space-x-2 hover:bg-gray-100 transition-colors text-lg font-semibold shadow-2xl transform group-hover:scale-105 duration-300 cursor-pointer">
                                 <IoCartOutline />
-                                <span>ADD TO CART</span>
+                                <span>Add to cart</span>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ export default function ProductCard({ product, variant = 'grid' }: ProductCardPr
                             className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
                             <div className="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <IoCartOutline />
-                                <span>ADD TO CART</span>
+                                <span>Add to cart</span>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@ export default function ProductCard({ product, variant = 'grid' }: ProductCardPr
     }
     return (
         <div className="group pb-20 sm:pb-6 lg:pb-10">
-            <div className='cursor-pointer' onClick={() => router.push(`/products/${product.id}`)}>
+            <div className='cursor-pointer hover:bg-gray-100 p-3 rounded-lg' onClick={() => router.push(`/products/${product.id}`)}>
                 <div className="relative overflow-hidden h-full">
                     {/* {product.badge && (
                         <span className="absolute top-3 left-3 bg-black/80 text-white text-xs font-semibold px-3 py-1.5 tracking-wider z-10">
@@ -146,9 +146,9 @@ export default function ProductCard({ product, variant = 'grid' }: ProductCardPr
                             dispatch(addToCart(product))
                         }}
                         className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                        <div className="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                        <div className="bg-white text-black px-4 py-2 sm:px-6 sm:py-3 flex items-center space-x-2 hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                             <IoCartOutline />
-                            <span>ADD TO CART</span>
+                            <span>Add to cart</span>
                         </div>
                     </div>
                 </div>
