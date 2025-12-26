@@ -14,6 +14,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IoIosArrowDown } from "react-icons/io";
 import { GiReturnArrow } from "react-icons/gi";
 import { MdOutlinePrivacyTip } from "react-icons/md";
+import prisma from "@/lib/prisma";
 
 const images = [
   "/assets/image/payment/AMEX.webp",
@@ -31,7 +32,7 @@ const shippingOptions = [
   { label: "Express Delivery (Dhaka Only)", price: 150 },
 ];
 
-export default function Cart() {
+export default async function Cart() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -101,6 +102,11 @@ export default function Cart() {
     }
     router.push("/Chackout");
   };
+
+  const products = await prisma.product.findMany({
+  take: 8, // 8টা related product দেখাবে
+});
+
 
   return (
     <main>
@@ -417,7 +423,7 @@ export default function Cart() {
         </div>
       </section>
       {/* RELATED PRODUCTS */}
-      <RelatedProduct />
+      <RelatedProduct products={products} />
     </main>
   );
 }

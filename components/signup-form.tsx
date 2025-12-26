@@ -189,7 +189,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
     if (res.error) {
       setError(res.error.message || "Something went wrong.");
     } else {
-      router.push("/admin/dashboard");
+      router.push("/admin/login");
     }
   }
 

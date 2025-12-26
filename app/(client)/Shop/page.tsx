@@ -1,3 +1,5 @@
+'use client'
+
 import Breadcrumb from "@/components/shared/Breadcump";
 import ShopCategory from "@/components/shared/ShopCat";
 import ShopFilter from "@/components/shared/ShopFilt";

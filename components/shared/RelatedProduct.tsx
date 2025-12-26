@@ -13,81 +13,81 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function RelatedProduct() {
-  const products = [
-    {
-      id: 1,
-      name: "Sport Performance Cap",
-      price: 4200,
-      originalPrice: 5800,
-      discount: 28,
-      image: "/assets/image/product/cap-1.jpg",
-      category: "New Arrivals",
-    },
-    {
-      id: 2,
-      name: "Retro Dad Hat",
-      price: 3600,
-      originalPrice: 4800,
-      discount: 25,
-      image: "/assets/image/product/cap-2.jpg",
-      category: "Featured",
-    },
-    {
-      id: 3,
-      name: "Designer Bucket Hat",
-      price: 5000,
-      originalPrice: 7000,
-      discount: 29,
-      image: "/assets/image/product/cap-4.jpg",
-      category: "Best Sellers",
-    },
-    {
-      id: 4,
-      name: "Classic Beanie",
-      price: 2500,
-      originalPrice: 3500,
-      discount: 29,
-      image: "/assets/image/product/cap-6.jpg",
-      category: "New Arrivals",
-    },
-    {
-      id: 5,
-      name: "Sport Performance Cap",
-      price: 4200,
-      originalPrice: 5800,
-      discount: 28,
-      image: "/assets/image/product/cap-1.jpg",
-      category: "New Arrivals",
-    },
-    {
-      id: 6,
-      name: "Retro Dad Hat",
-      price: 3600,
-      originalPrice: 4800,
-      discount: 25,
-      image: "/assets/image/product/cap-2.jpg",
-      category: "Featured",
-    },
-    {
-      id: 7,
-      name: "Designer Bucket Hat",
-      price: 5000,
-      originalPrice: 7000,
-      discount: 29,
-      image: "/assets/image/product/cap-4.jpg",
-      category: "Best Sellers",
-    },
-    {
-      id: 8,
-      name: "Classic Beanie",
-      price: 2500,
-      originalPrice: 3500,
-      discount: 29,
-      image: "/assets/image/product/cap-6.jpg",
-      category: "New Arrivals",
-    },
-  ];
+export default function RelatedProduct({ products }: {products: any}) {
+  // const products = [
+  //   {
+  //     id: 1,
+  //     name: "Sport Performance Cap",
+  //     price: 4200,
+  //     originalPrice: 5800,
+  //     discount: 28,
+  //     image: "/assets/image/product/cap-1.jpg",
+  //     category: "New Arrivals",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Retro Dad Hat",
+  //     price: 3600,
+  //     originalPrice: 4800,
+  //     discount: 25,
+  //     image: "/assets/image/product/cap-2.jpg",
+  //     category: "Featured",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Designer Bucket Hat",
+  //     price: 5000,
+  //     originalPrice: 7000,
+  //     discount: 29,
+  //     image: "/assets/image/product/cap-4.jpg",
+  //     category: "Best Sellers",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Classic Beanie",
+  //     price: 2500,
+  //     originalPrice: 3500,
+  //     discount: 29,
+  //     image: "/assets/image/product/cap-6.jpg",
+  //     category: "New Arrivals",
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Sport Performance Cap",
+  //     price: 4200,
+  //     originalPrice: 5800,
+  //     discount: 28,
+  //     image: "/assets/image/product/cap-1.jpg",
+  //     category: "New Arrivals",
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "Retro Dad Hat",
+  //     price: 3600,
+  //     originalPrice: 4800,
+  //     discount: 25,
+  //     image: "/assets/image/product/cap-2.jpg",
+  //     category: "Featured",
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "Designer Bucket Hat",
+  //     price: 5000,
+  //     originalPrice: 7000,
+  //     discount: 29,
+  //     image: "/assets/image/product/cap-4.jpg",
+  //     category: "Best Sellers",
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "Classic Beanie",
+  //     price: 2500,
+  //     originalPrice: 3500,
+  //     discount: 29,
+  //     image: "/assets/image/product/cap-6.jpg",
+  //     category: "New Arrivals",
+  //   },
+  // ];
 
   return (
     <section className="RelatedProduct-wrappervpx-4 sm:px-6 lg:px-4 py-10">
@@ -121,17 +121,17 @@ export default function RelatedProduct() {
             }}
             className="pb-10"
           >
-            {products.map((product) => (
+            {products.map((product: any) => (
               <SwiperSlide key={product.id}>
                 <div className="group pb-4 sm:pb-6 lg:pb-10">
                   <div className="relative overflow-hidden">
 
                     {/* Badge */}
-                    {product.category && (
+                    {/* {product.category && (
                       <span className="absolute top-3 left-3 bg-black/80 text-white text-xs font-semibold px-3 py-1.5 tracking-wider z-10">
                         {product.category}
                       </span>
-                    )}
+                    )} */}
 
                     {/* Product Image */}
                     <Image
@@ -163,7 +163,7 @@ export default function RelatedProduct() {
                         ৳{product.price}
                       </p>
 
-                      {product.originalPrice && (
+                      {/* {product.originalPrice && (
                         <>
                           <p className="text-sm text-gray-500 line-through">
                             ৳{product.originalPrice}
@@ -176,7 +176,7 @@ export default function RelatedProduct() {
                             </span>
                           )}
                         </>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
