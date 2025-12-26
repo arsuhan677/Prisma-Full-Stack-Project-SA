@@ -6,7 +6,6 @@ import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { increaseQty, decreaseQty, removeFromCart } from "@/store/cartSlice";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-// import ShoppingStep from "@/components/shared/Shopsteps";
 import ShoppingStep from "@/components/shared/ShopSteps";
 import { steps } from "@/components/shared/steps";
 import { FaRegHeart } from "react-icons/fa";
@@ -32,7 +31,8 @@ const shippingOptions = [
   { label: "Express Delivery (Dhaka Only)", price: 150 },
 ];
 
-export default async function Cart() {
+export default function Cart() {
+
   const dispatch = useAppDispatch();
   const router = useRouter();
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -102,11 +102,6 @@ export default async function Cart() {
     }
     router.push("/Chackout");
   };
-
-  const products = await prisma.product.findMany({
-  take: 8, // 8টা related product দেখাবে
-});
-
 
   return (
     <main>
@@ -423,7 +418,7 @@ export default async function Cart() {
         </div>
       </section>
       {/* RELATED PRODUCTS */}
-      <RelatedProduct products={products} />
+      <RelatedProduct />
     </main>
   );
 }

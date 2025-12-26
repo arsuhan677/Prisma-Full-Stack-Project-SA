@@ -9,6 +9,7 @@ import Newsletter from '@/components/Newsletter';
 import TrendingNow from '@/components/sections/TrendingNow';
 import ServiceHighlights from '@/components/ServiceHighlights';
 import prisma from '@/lib/prisma';
+// import RelatedProduct from '@/components/shared/RelatedProduct';
 
 export default async function Home() {
   const products = await prisma.product.findMany();
@@ -33,6 +34,7 @@ export default async function Home() {
           <JustForYou products={products} />
           <Newsletter />
           <TrendingNow products={products} />
+          {/* <RelatedProduct /> */}
           <ServiceHighlights />
         </div>
       </main>
