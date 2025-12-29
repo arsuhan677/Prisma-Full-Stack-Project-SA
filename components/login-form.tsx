@@ -23,7 +23,6 @@ import { signIn } from "@/lib/auth-client";
 
 const ADMIN_EMAILS = [
   "aminurrahmansuhan@gmail.com",
-  "freelance.com677@gmail.com",
 ];
 
 export function LoginForm({
@@ -90,7 +89,7 @@ export function LoginForm({
                   name="email"
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="your email.."
                   required
                 />
               </Field>
@@ -109,6 +108,7 @@ export function LoginForm({
                   name="password"
                   id="password"
                   type="password"
+                  placeholder="password..."
                   required
                 />
               </Field>

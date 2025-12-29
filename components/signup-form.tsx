@@ -206,7 +206,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="name">Full Name</FieldLabel>
-              <Input name="name" id="name" type="text" placeholder="John Doe" required />
+              <Input name="name" id="name" type="text" placeholder="your name..." required />
             </Field>
             <Field>
               <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -214,7 +214,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                 name="email"
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="your email..."
                 required
               />
               <FieldDescription>
@@ -224,7 +224,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
             </Field>
             <Field>
               <FieldLabel htmlFor="password">Password</FieldLabel>
-              <Input name="password" id="password" type="password" required />
+              <Input name="password" id="password" type="password" placeholder="password.." required />
               <FieldDescription>
                 Must be at least 8 characters long.
               </FieldDescription>
@@ -233,7 +233,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
               <FieldLabel htmlFor="confirm-password">
                 Confirm Password
               </FieldLabel>
-              <Input name="confirm-password" id="confirm-password" type="password" required />
+              <Input name="confirm-password" id="confirm-password" type="password" placeholder="confirm password.." required />
               <FieldDescription>Please confirm your password.</FieldDescription>
             </Field>
             <FieldGroup>

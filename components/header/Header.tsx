@@ -122,12 +122,12 @@ export default function Header() {
 
                         {/* Category Dropdown */}
                         <div className="relative dropdown">
-                            <button className="nav-link-animated flex items-center text-gray-900 group">
-                                Category
+                            <Link href="/contact" className="nav-link-animated flex items-center text-gray-900 group">
+                                Contact
                                 {/* <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                                 </svg> */}
-                            </button>
+                            </Link>
                             {/* <div className="dropdown-menu absolute w-56 bg-white/95 backdrop-blur-lg border border-gray-200 shadow-2xl mt-3 py-2 z-20 overflow-hidden">
                                 <Link href="#" className="block px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-600 transition-all duration-200 border-l-2 border-transparent hover:border-indigo-500">
                                     <span className="flex items-center"><span className="mr-2">👕</span> Shirts</span>
@@ -141,7 +141,7 @@ export default function Header() {
                             </div> */}
                         </div>
 
-                        <Link href="/contact" className="nav-link-animated text-gray-900">Contact</Link>
+                        {/* <Link href="/contact" className="nav-link-animated text-gray-900">Contact</Link> */}
                     </nav>
                 </div>
 
