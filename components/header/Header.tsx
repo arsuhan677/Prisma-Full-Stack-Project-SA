@@ -141,7 +141,7 @@ export default function Header() {
                             </div> */}
                         </div>
 
-                        <Link href="#" className="nav-link-animated text-gray-900">Contact</Link>
+                        <Link href="/contact" className="nav-link-animated text-gray-900">Contact</Link>
                     </nav>
                 </div>
 
