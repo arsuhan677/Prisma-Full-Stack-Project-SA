@@ -12,7 +12,7 @@ import {
 import {
   Field,
   FieldDescription,
-  FieldGroup,
+  FieldGroup, 
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -21,9 +21,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/lib/auth-client";
 
-const ADMIN_EMAILS = [
-  "aminurrahmansuhan@gmail.com",
-];
+const ADMIN_EMAILS = ["aminurrahmansuhan@gmail.com"];
 
 export function LoginForm({
   className,
@@ -72,6 +70,9 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <div>
+        hello div
+      </div>
       <Card>
         <CardHeader>
           <CardTitle>Login to your account</CardTitle>
@@ -114,19 +115,13 @@ export function LoginForm({
               </Field>
 
               <Field>
-                {error && (
-                  <p className="text-sm text-red-500">{error}</p>
-                )}
+                {error && <p className="text-sm text-red-500">{error}</p>}
 
                 <Button type="submit" disabled={loading} className="w-full">
                   {loading ? "Logging in..." : "Login"}
                 </Button>
 
-                <Button
-                  variant="outline"
-                  type="button"
-                  className="w-full mt-2"
-                >
+                <Button variant="outline" type="button" className="w-full mt-2">
                   Login with Google
                 </Button>
 
