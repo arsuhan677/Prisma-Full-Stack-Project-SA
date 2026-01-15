@@ -20,7 +20,7 @@ export default function RelatedProduct() {
       price: 4200,
       originalPrice: 5800,
       discount: 28,
-      image: "/assets/image/product/cap-1.jpg",
+      image: "/assets/image/just-for-you/ss.png",
       category: "New Arrivals",
     },
     {
@@ -29,7 +29,7 @@ export default function RelatedProduct() {
       price: 3600,
       originalPrice: 4800,
       discount: 25,
-      image: "/assets/image/product/cap-2.jpg",
+      image: "/assets/image/just-for-you/sss.png",
       category: "Featured",
     },
     {
@@ -38,7 +38,7 @@ export default function RelatedProduct() {
       price: 5000,
       originalPrice: 7000,
       discount: 29,
-      image: "/assets/image/product/cap-4.jpg",
+      image: "/assets/image/just-for-you/ssss.png",
       category: "Best Sellers",
     },
     {
@@ -47,7 +47,7 @@ export default function RelatedProduct() {
       price: 2500,
       originalPrice: 3500,
       discount: 29,
-      image: "/assets/image/product/cap-6.jpg",
+      image: "/assets/image/just-for-you/cc.png",
       category: "New Arrivals",
     },
     {
@@ -56,7 +56,7 @@ export default function RelatedProduct() {
       price: 4200,
       originalPrice: 5800,
       discount: 28,
-      image: "/assets/image/product/cap-1.jpg",
+      image: "/assets/image/just-for-you/cap.png",
       category: "New Arrivals",
     },
     {
@@ -65,7 +65,7 @@ export default function RelatedProduct() {
       price: 3600,
       originalPrice: 4800,
       discount: 25,
-      image: "/assets/image/product/cap-2.jpg",
+      image: "/assets/image/just-for-you/cap1.png",
       category: "Featured",
     },
     {
@@ -74,17 +74,8 @@ export default function RelatedProduct() {
       price: 5000,
       originalPrice: 7000,
       discount: 29,
-      image: "/assets/image/product/cap-4.jpg",
+      image: "/assets/image/just-for-you/cap2.png",
       category: "Best Sellers",
-    },
-    {
-      id: 8,
-      name: "Classic Beanie",
-      price: 2500,
-      originalPrice: 3500,
-      discount: 29,
-      image: "/assets/image/product/cap-6.jpg",
-      category: "New Arrivals",
     },
   ];
 

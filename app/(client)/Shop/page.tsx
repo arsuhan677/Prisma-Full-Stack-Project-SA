@@ -122,8 +122,7 @@ import { Product } from "@/app/generated/prisma/client";
 
 export default function ShopOne({ products }: { products: Product[]; }) {
   return (
-    <>
-      <main>
+    <>      <main>
         <Breadcrumb
             title="Men's Caps & Hats"
             itemsCount={120}

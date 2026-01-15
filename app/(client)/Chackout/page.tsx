@@ -12,6 +12,7 @@ import { MdOutlinePrivacyTip } from "react-icons/md";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setCart } from "@/store/cartSlice";
 import { useToast } from "@/hooks/use-toast";
+import RelatedProduct from "@/components/shared/RelatedProduct";
 
 type CheckoutFormState = {
     fullName: string
@@ -24,16 +25,16 @@ type CheckoutFormState = {
     note: string
 }
 
-const images = [
-    "/assets/image/payment/AMEX.webp",
-    "/assets/image/payment/Bkash.webp",
-    "/assets/image/payment/Nagad.webp",
-    "/assets/image/payment/Rocket.webp",
-    "/assets/image/payment/Mastercard.webp",
-    "/assets/image/payment/visa-logo.webp",
-    "/assets/image/payment/surface1.webp",
-    "/assets/image/payment/Group 65.webp",
-];
+// const images = [
+//     "/assets/image/payment/AMEX.webp",
+//     "/assets/image/payment/Bkash.webp",
+//     "/assets/image/payment/Nagad.webp",
+//     "/assets/image/payment/Rocket.webp",
+//     "/assets/image/payment/Mastercard.webp",
+//     "/assets/image/payment/visa-logo.webp",
+//     "/assets/image/payment/surface1.webp",
+//     "/assets/image/payment/Group 65.webp",
+// ];
 const shippingOptions = [
     { label: "Outside Of Dhaka", price: 120 },
     { label: "Inside Dhaka", price: 60 },
@@ -464,7 +465,7 @@ export default function Checkout() {
                       complete payment.
                     </p>
                     <div className="flex items-center mt-3">
-                    {images.map((src, i) => (
+                    {/* {images.map((src, i) => (
                     <div key={i} className="flex items-center justify-center">
                         <Image
                         src={src}
@@ -474,7 +475,7 @@ export default function Checkout() {
                         className="h-4 object-contain opacity-80"
                         />
                     </div>
-                    ))}
+                    ))} */}
                   </div>
                   </div>
                 </label>
@@ -542,6 +543,7 @@ export default function Checkout() {
         </div>
       </div>
     </section>
+    <RelatedProduct />
     </main>
     
   );

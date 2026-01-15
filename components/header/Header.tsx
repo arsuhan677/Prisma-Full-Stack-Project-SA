@@ -118,7 +118,7 @@ export default function Header() {
                 <div className="hidden lg:flex items-center flex-1 justify-start z-20">
                     <nav className="flex space-x-6 xl:space-x-10 text-base xl:text-lg font-semibold tracking-tight">
                         <Link href="/" className="nav-link-animated text-gray-900">Home</Link>
-                        <Link href="/Shop" className="nav-link-animated text-gray-900">Shop</Link>
+                        {/* <Link href="/Shop" className="nav-link-animated text-gray-900">Shop</Link> */}
 
                         {/* Category Dropdown */}
                         <div className="relative dropdown">

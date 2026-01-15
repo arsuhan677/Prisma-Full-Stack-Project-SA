@@ -16,14 +16,14 @@ import { MdOutlinePrivacyTip } from "react-icons/md";
 import prisma from "@/lib/prisma";
 
 const images = [
-  "/assets/image/payment/AMEX.webp",
-  "/assets/image/payment/Bkash.webp",
-  "/assets/image/payment/Nagad.webp",
-  "/assets/image/payment/Rocket.webp",
-  "/assets/image/payment/Mastercard.webp",
-  "/assets/image/payment/visa-logo.webp",
-  "/assets/image/payment/surface1.webp",
-  "/assets/image/payment/Group 65.webp",
+  "/assets/image/just-for-you/Rectangle 19333 (1).png",
+  "/assets/image/just-for-you/Bkash.webp",
+  "/assets/image/just-for-you/Nagad.webp",
+  "/assets/image/just-for-you/Rocket.webp",
+  "/assets/image/just-for-you/Mastercard.webp",
+  "/assets/image/just-for-you/visa-logo.webp",
+  "/assets/image/just-for-you/surface1.webp",
+  "/assets/image/just-for-you/Group 65.webp",
 ];
 const shippingOptions = [
   { label: "Outside Of Dhaka", price: 120 },

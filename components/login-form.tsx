@@ -21,7 +21,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/lib/auth-client";
 
-const ADMIN_EMAILS = ["aminurrahmansuhan@gmail.com"];
+const ADMIN_EMAILS = ["arsuhan677@gmail.com"];
 
 export function LoginForm({
   className,
@@ -70,9 +70,6 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <div>
-        hello div
-      </div>
       <Card>
         <CardHeader>
           <CardTitle>Login to your account</CardTitle>
