@@ -145,14 +145,6 @@ export default function Header() {
                     </nav>
                 </div>
 
-                {/* Desktop Center Logo */}
-                <Link href="/" className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto group">
-                    <div className="logo-container relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 rounded-full blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-                        {/* <Image src="/assets/image/logo/Logo.png" alt="Logo" width={120} height={60} className="h-10 lg:h-14 xl:h-16 w-auto relative z-10 transition-transform duration-300 group-hover:scale-110" /> */}
-                    </div>
-                </Link>
-
                 {/* Action Icons */}
                 <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 z-20">
 

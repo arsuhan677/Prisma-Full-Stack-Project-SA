@@ -4,10 +4,6 @@ import "./globals.css";
 import { main } from "@/prisma/seed";
 import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "./providers";
-// import Header from "@/componenets/header/Header";
-// import Footer from "@/componenets/footer/Footer";
-// import { main } from "@/seed";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

@@ -12,18 +12,20 @@ export default function ProductCard({ product, variant = 'grid' }: ProductCardPr
             <div className="group bg-white overflow-visible shadow-md transition-shadow duration-300">
                 <div className="relative overflow-hidden">
                     {product.badge && (
-                        <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 text-xs font-bold rounded-full z-10">
-                            {product.badge}
-                        </div>
-                    )}
+  <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 text-xs font-bold rounded-full z-10">
+    {product.badge}
+  </div>
+)}
+
 
                     <Image
-                        src={product.image}
-                        alt={product.name}
-                        width={400}
-                        height={400}
-                        className="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110"
-                    />
+  src={product.image ?? '/placeholder.png'}
+  alt={product.name}
+  width={400}
+  height={400}
+  className="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110"
+/>
+
 
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
@@ -61,18 +63,19 @@ export default function ProductCard({ product, variant = 'grid' }: ProductCardPr
         <div className="group">
             <div className="relative overflow-hidden rounded-lg">
                 {product.badge && (
-                    <span className="absolute top-3 left-3 bg-black/80 text-white text-xs font-semibold px-3 py-1.5 tracking-wider z-10">
-                        {product.badge}
-                    </span>
-                )}
+  <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 text-xs font-bold rounded-full z-10">
+    {product.badge}
+  </div>
+)}
+
 
                 <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={400}
-                    height={400}
-                    className="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110"
-                />
+  src={product.image ?? '/placeholder.png'}
+  alt={product.name}
+  width={400}
+  height={400}
+  className="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110"
+/>
 
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button className="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
